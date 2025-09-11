@@ -1,74 +1,58 @@
 #include<iostream>
 using namespace std;
 
-class Fraction 
+class Fraction
 {
-private: 
+private:
     int x; 
-    int y; 
-    char symbol;
-public:  
+    int y;
+    char s; 
+
+public:
+
+    Fraction() 
+    {
+        cout << "Constructor by default\n";
+        x = 0;
+        y = 0;
+        s = 'A';
+    }
+    Fraction(char z, int a, int b) 
+    {
+        s = z;
+        x = a;
+        y = b;
+        cout << "Constructor by 3 params\n";
+    }
 
     void Print() 
     {
-        cout << symbol << " fraction -> " << x << " / " << y << endl;
+        cout << s << "-> X: " << x << "\tY: " << y << endl;
     }
     void Init(char t, int _x, int _y) 
     {
-        symbol = t;
+        s = t;
         x = _x;
         y = _y;
     }
-    void SetSymbol(char sym)
+    void SetSymbol(char syn)
     {
-        symbol = sym;
+        s = syn;
     }
-    char GetSymbol() 
+    char GetSymbol()
     {
-        return symbol;
-    }
-
-    void SetX(int a)
-    {
-        if (a >= 0)
-        {
-            x = a;
-        }
-    }
-    int GetX()
-    {
-        return x;
-    }
-    void SetY(int b)
-    {
-        if (b >= 0)
-        {
-            y = b;
-        }
-    }
-    int GetY()
-    {
-        return y;
+        return s;
     }
 };
-
 int main()
 {
     Fraction a;
-
-    a.Init('A', 10, 20);
     a.Print();
-    a.SetSymbol('T');
+    a.Init('A', 10, -20);
     a.Print();
 
-    char c = a.GetSymbol();
-    cout << c << endl;
-
-    Fraction b;
-
-    b.Init('B', 17, 25);
+    Fraction b('B', 10, 20);
     b.Print();
-    b.SetSymbol('I');
-    b.Print();
+
 
 }
